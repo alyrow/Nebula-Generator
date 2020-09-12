@@ -60,3 +60,62 @@ nebulasGenerator.generateTextureNebulasBlendedWithAPixmapGammaCorrection(your_pi
 ```
 
 ## Screenshots
+#### Multiple nebulas blended with a star background:
+##### Without gamma correction and alpha = 1
+```java
+NebulaGenerator generator1 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.FOAM_NOISE, 283, 12,
+                new Color(0.1f,0.1f,1f,1), 1f, new Vector2(0,200), new Vector2(0,180));
+
+NebulaGenerator generator2 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.WHITE_NOISE, 1000, 12,
+                new Color(0.8f,0.4f,0.6f,1), 1f, new Vector2(0,0), new Vector2(0,0));
+
+NebulasGenerator nebulasGenerator = new NebulasGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+nebulasGenerator.addGenerator(generator1);
+nebulasGenerator.addGenerator(generator2);
+
+Pixmap nebula = nebulasGenerator.generatePixmapNebulasBlendedWithAPixmap(new Pixmap(Gdx.files.absolute("path to stars background")));
+````
+##### Without gamma correction and alpha = 3
+```java
+NebulaGenerator generator1 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.FOAM_NOISE, 283, 12,
+                new Color(0.1f,0.1f,1f,1), 3f, new Vector2(0,200), new Vector2(0,180));
+
+NebulaGenerator generator2 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.WHITE_NOISE, 1000, 12,
+                new Color(0.8f,0.4f,0.6f,1), 3f, new Vector2(0,0), new Vector2(0,0));
+
+NebulasGenerator nebulasGenerator = new NebulasGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+nebulasGenerator.addGenerator(generator1);
+nebulasGenerator.addGenerator(generator2);
+
+Pixmap nebula = nebulasGenerator.generatePixmapNebulasBlendedWithAPixmap(new Pixmap(Gdx.files.absolute("path to stars background")));
+````
+##### With gamma correction and alpha = 1
+```java
+NebulaGenerator generator1 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.FOAM_NOISE, 283, 12,
+                new Color(0.1f,0.1f,1f,1), 1f, new Vector2(0,200), new Vector2(0,180));
+
+NebulaGenerator generator2 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.WHITE_NOISE, 1000, 12,
+                new Color(0.8f,0.4f,0.6f,1), 1f, new Vector2(0,0), new Vector2(0,0));
+
+NebulasGenerator nebulasGenerator = new NebulasGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+nebulasGenerator.addGenerator(generator1);
+nebulasGenerator.addGenerator(generator2);
+
+Pixmap nebula = nebulasGenerator.generatePixmapNebulasBlendedWithAPixmapGammaCorrection(new Pixmap(Gdx.files.absolute("path to stars background")));
+````
+##### With gamma correction and alpha = 3
+```java
+NebulaGenerator generator1 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.FOAM_NOISE, 283, 12,
+                new Color(0.1f,0.1f,1f,1), 3f, new Vector2(0,200), new Vector2(0,180));
+
+NebulaGenerator generator2 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.WHITE_NOISE, 1000, 12,
+                new Color(0.8f,0.4f,0.6f,1), 3f, new Vector2(0,0), new Vector2(0,0));
+
+NebulasGenerator nebulasGenerator = new NebulasGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+nebulasGenerator.addGenerator(generator1);
+nebulasGenerator.addGenerator(generator2);
+
+Pixmap nebula = nebulasGenerator.generatePixmapNebulasBlendedWithAPixmapGammaCorrection(new Pixmap(Gdx.files.absolute("path to stars background")));
+````
+
+#### Multiple nebulas:
