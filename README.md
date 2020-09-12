@@ -1,6 +1,22 @@
 # Nebula-Generator
 A nebula generator writted with libgdx
 
+Ensure that you have jitpack dependencies source in your `build.gradle`:
+```gradle
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
+}
+```
+Then, add this dependencie:
+```gradle
+dependencies {
+	implementation 'com.github.alyrow:Nebula-Generator:v1.0.0'
+}
+```
+
 ## Basic usages
 A generator is defined by:
 ```java
@@ -75,6 +91,7 @@ nebulasGenerator.addGenerator(generator2);
 
 Pixmap nebula = nebulasGenerator.generatePixmapNebulasBlendedWithAPixmap(new Pixmap(Gdx.files.absolute("path to stars background")));
 ````
+![](https://github.com/alyrow/Nebula-Generator/raw/master/screenshots/Without%20gamma%20correction%20and%20alpha%20%3D%201.png)
 ##### Without gamma correction and alpha = 3
 ```java
 NebulaGenerator generator1 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.FOAM_NOISE, 283, 12,
@@ -89,6 +106,7 @@ nebulasGenerator.addGenerator(generator2);
 
 Pixmap nebula = nebulasGenerator.generatePixmapNebulasBlendedWithAPixmap(new Pixmap(Gdx.files.absolute("path to stars background")));
 ````
+![](https://github.com/alyrow/Nebula-Generator/raw/master/screenshots/Without%20gamma%20correction%20and%20alpha%20%3D%203.png)
 ##### With gamma correction and alpha = 1
 ```java
 NebulaGenerator generator1 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.FOAM_NOISE, 283, 12,
@@ -103,6 +121,7 @@ nebulasGenerator.addGenerator(generator2);
 
 Pixmap nebula = nebulasGenerator.generatePixmapNebulasBlendedWithAPixmapGammaCorrection(new Pixmap(Gdx.files.absolute("path to stars background")));
 ````
+![](https://github.com/alyrow/Nebula-Generator/raw/master/screenshots/With%20gamma%20correction%20and%20alpha%20%3D%201.png)
 ##### With gamma correction and alpha = 3
 ```java
 NebulaGenerator generator1 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.FOAM_NOISE, 283, 12,
@@ -117,7 +136,7 @@ nebulasGenerator.addGenerator(generator2);
 
 Pixmap nebula = nebulasGenerator.generatePixmapNebulasBlendedWithAPixmapGammaCorrection(new Pixmap(Gdx.files.absolute("path to stars background")));
 ````
-
+![](https://github.com/alyrow/Nebula-Generator/raw/master/screenshots/With%20gamma%20correction%20and%20alpha%20%3D%203.png)
 #### Fog:
 Yes nebula can be used for other things than nebulas!
 Not perfect but a good start.
@@ -135,5 +154,6 @@ nebulasGenerator.addGenerator(generator2);
 Pixmap nebula = nebulasGenerator.generatePixmapNebulasBlendedWithAPixmapGammaCorrection(new Pixmap(Gdx.files.absolute("path to forest.png")));
 ```
 ##### Orgininal image:
-
+![](https://github.com/alyrow/Nebula-Generator/raw/master/screenshots/forest.png)
 ##### With fog:
+![](https://github.com/alyrow/Nebula-Generator/raw/master/screenshots/fog.png)
