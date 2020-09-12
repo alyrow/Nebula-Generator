@@ -1,6 +1,22 @@
 # Nebula-Generator
 A nebula generator writted with libgdx
 
+Ensure that you have jitpack dependencies source in your `build.gradle`:
+```gradle
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
+}
+```
+Then, add this dependencie:
+```gradle
+dependencies {
+	implementation 'com.github.alyrow:Nebula-Generator:v1.0.0'
+}
+```
+
 ## Basic usages
 A generator is defined by:
 ```java
