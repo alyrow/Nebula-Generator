@@ -48,11 +48,11 @@ public class NebulasGenerator {
     }
 
     private Pixmap Blend(Pixmap source, Pixmap destination) {
-        Pixmap blended = new Pixmap(this.width, this.height, Pixmap.Format.RGBA8888);
-        for (int x = 0; x < this.width+1; x++) {
-            for (int y = 0; y < this.height+1; y++) {
-                Color s = new Color(source.getPixel(x, y));
-                Color n = new Color(destination.getPixel(x, y));
+        Color s = new Color(), n = new Color();
+        for (int x = 0; x < this.width; x++) {
+            for (int y = 0; y < this.height; y++) {
+                s.set(source.getPixel(x, y));
+                n.set(destination.getPixel(x, y));
 
                 float sR = n.r, sG = n.g, sB = n.b, sA = n.a,
                         dR = s.r, dG = s.g, dB = s.b, dA = s.a;
@@ -62,11 +62,11 @@ public class NebulasGenerator {
                 // (sR*sA+ dR*dA*(1-sA))/(sA+dA*(1-sA)) //a=sA+dA*(1-sA)
                 // Math.pow(Math.pow(sR, gamma)*sA+Math.pow(dR, gamma)*(1-sA), (1/gamma))
 
-                blended.setColor(sA*sR + (1-sA)*dR, sA*sG + (1-sA)*dG, sA*sB + (1-sA)*dB, sA+dA*(1-sA));
-                blended.drawPixel(x, y);
+                destination.setColor(sA*sR + (1-sA)*dR, sA*sG + (1-sA)*dG, sA*sB + (1-sA)*dB, sA+dA*(1-sA));
+                destination.drawPixel(x, y);
             }
         }
-        return blended;
+        return destination;
     }
 
     public Pixmap generatePixmapNebulasBlendedWithAPixmapGammaCorrection(Pixmap source) {
@@ -78,11 +78,11 @@ public class NebulasGenerator {
     }
 
     private Pixmap BlendGammaCorrection(Pixmap source, Pixmap destination) {
-        Pixmap blended = new Pixmap(this.width, this.height, Pixmap.Format.RGBA8888);
-        for (int x = 0; x < this.width+1; x++) {
-            for (int y = 0; y < this.height+1; y++) {
-                Color s = new Color(source.getPixel(x, y));
-                Color n = new Color(destination.getPixel(x, y));
+        Color s = new Color(), n = new Color();
+        for (int x = 0; x < this.width; x++) {
+            for (int y = 0; y < this.height; y++) {
+                s.set(source.getPixel(x, y));
+                n.set(destination.getPixel(x, y));
 
                 float sR = n.r, sG = n.g, sB = n.b, sA = n.a,
                         dR = s.r, dG = s.g, dB = s.b, dA = s.a;
@@ -92,10 +92,10 @@ public class NebulasGenerator {
                 // (sR*sA+ dR*dA*(1-sA))/(sA+dA*(1-sA)) //a=sA+dA*(1-sA)
                 // Math.pow(Math.pow(sR, gamma)*sA+Math.pow(dR, gamma)*(1-sA), (1/gamma))
 
-                blended.setColor((float) Math.pow(Math.pow(sR, gamma)*sA+Math.pow(dR, gamma)*(1-sA), (1/gamma)), (float) Math.pow(Math.pow(sG, gamma)*sA+Math.pow(dG, gamma)*(1-sA), (1/gamma)), (float) Math.pow(Math.pow(sB, gamma)*sA+Math.pow(dB, gamma)*(1-sA), (1/gamma)), 1);
-                blended.drawPixel(x, y);
+                destination.setColor((float) Math.pow(Math.pow(sR, gamma)*sA+Math.pow(dR, gamma)*(1-sA), (1/gamma)), (float) Math.pow(Math.pow(sG, gamma)*sA+Math.pow(dG, gamma)*(1-sA), (1/gamma)), (float) Math.pow(Math.pow(sB, gamma)*sA+Math.pow(dB, gamma)*(1-sA), (1/gamma)), 1);
+                destination.drawPixel(x, y);
             }
         }
-        return blended;
+        return destination;
     }
 }
