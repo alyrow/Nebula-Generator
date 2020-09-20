@@ -141,17 +141,17 @@ Pixmap nebula = nebulasGenerator.generatePixmapNebulasBlendedWithAPixmapGammaCor
 Yes nebula can be used for other things than nebulas!
 Not perfect but a good start.
 ```java
-NebulaGenerator generator1 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.FOAM_NOISE, 283, 12,
-                new Color(0.8f,0.8f,0.8f,1), 4f, new Vector2(300,210), new Vector2(250,200));
+NebulaGenerator generator1 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), DEFAULT, 12955341, 8,
+                new Color(0.8f,0.8f,0.8f,1), 1f, new Vector2(0,-380));
 
-NebulaGenerator generator2 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.WHITE_NOISE, 1000, 12,
-                new Color(0.8f,0.8f,0.8f,1), 1f, new Vector2(0,0), new Vector2(0,0));
+NebulaGenerator generator2 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), HONEY_NOISE, 78912345, 9,
+                new Color(0.8f,0.8f,0.8f,1), 1f, new Vector2(0,-1000));
 
 NebulasGenerator nebulasGenerator = new NebulasGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 nebulasGenerator.addGenerator(generator1);
 nebulasGenerator.addGenerator(generator2);
 
-Pixmap nebula = nebulasGenerator.generatePixmapNebulasBlendedWithAPixmapGammaCorrection(new Pixmap(Gdx.files.absolute("path to forest.png")));
+Pixmap nebula = nebulasGenerator.generatePixmapNebulasBlendedWithAPixmap(new Pixmap(Gdx.files.absolute("path to forest.png")));
 ```
 ##### Orgininal image:
 ![](https://github.com/alyrow/Nebula-Generator/raw/master/screenshots/forest.png)
