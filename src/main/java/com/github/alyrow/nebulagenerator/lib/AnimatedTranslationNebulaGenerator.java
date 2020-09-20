@@ -10,13 +10,13 @@ public class AnimatedTranslationNebulaGenerator extends NebulaGenerator {
     Vector2 translation;
     Vector2 position = new Vector2(0,0);
 
-    public AnimatedTranslationNebulaGenerator(int width, int height, NoiseType type, long seed, int octave, Color color, float alpha) {
-        super(width, height, type, seed, octave, color, alpha);
+    public AnimatedTranslationNebulaGenerator(int width, int height, NoiseType type, long seed, int octave, Color color, float alpha, Vector2 offset) {
+        super(width, height, type, seed, octave, color, alpha, offset);
         translation = new Vector2(0, 0);
     }
 
-    public AnimatedTranslationNebulaGenerator(int width, int height, NoiseType type, long seed, int octave, Color color, float alpha, float vx, float vy) {
-        super(width, height, type, seed, octave, color, alpha);
+    public AnimatedTranslationNebulaGenerator(int width, int height, NoiseType type, long seed, int octave, Color color, float alpha, Vector2 offset, float vx, float vy) {
+        super(width, height, type, seed, octave, color, alpha, offset);
         translation = new Vector2(vx, vy);
     }
 
@@ -26,7 +26,7 @@ public class AnimatedTranslationNebulaGenerator extends NebulaGenerator {
         Color cln = new Color(1, 1, 1, 0).sub(color), temp = new Color();
         for (int x=0; x<this.width; x++) {
             for (int y=0; y<this.height; y++) {
-                float n = this.generator.getConfiguredNoise(x+position.x, y+position.y);
+                float n = this.generator.getConfiguredNoise(x+position.x+offset.x, y+position.y+offset.y);
                 float div = 0.5f;
                 float r = (cln.r+n)*div;
                 float g = (cln.g+n)*div;

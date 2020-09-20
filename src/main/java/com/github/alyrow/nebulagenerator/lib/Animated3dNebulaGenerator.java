@@ -12,8 +12,8 @@ public class Animated3dNebulaGenerator {
     public static class Time extends NebulaGenerator {
         long startTime;
 
-        public Time(int width, int height, NoiseType type, long seed, int octave, Color color, float alpha) {
-            super(width, height, type, seed, octave, color, alpha);
+        public Time(int width, int height, NoiseType type, long seed, int octave, Color color, float alpha, Vector2 offset) {
+            super(width, height, type, seed, octave, color, alpha, offset);
             startTime = TimeUtils.millis();
         }
 
@@ -25,7 +25,7 @@ public class Animated3dNebulaGenerator {
             for (int x=0; x<this.width; x++) {
                 for (int y=0; y<this.height; y++) {
 //                float n = this.generator.getConfiguredNoise(x, y);
-                    float n = this.generator.getConfiguredNoise(x, y, time);
+                    float n = this.generator.getConfiguredNoise(x+offset.x, y+offset.y, time);
                     float div = 0.5f;
                     float r = (cln.r+n)*div;
                     float g = (cln.g+n)*div;
@@ -48,13 +48,13 @@ public class Animated3dNebulaGenerator {
         int frame;
         float speed = 10;
 
-        public Frame(int width, int height, NoiseType type, long seed, int octave, Color color, float alpha) {
-            super(width, height, type, seed, octave, color, alpha);
+        public Frame(int width, int height, NoiseType type, long seed, int octave, Color color, float alpha, Vector2 offset) {
+            super(width, height, type, seed, octave, color, alpha, offset);
             frame = 0;
         }
 
-        public Frame(int width, int height, NoiseType type, long seed, int octave, Color color, float alpha, float speed) {
-            super(width, height, type, seed, octave, color, alpha);
+        public Frame(int width, int height, NoiseType type, long seed, int octave, Color color, float alpha, Vector2 offset, float speed) {
+            super(width, height, type, seed, octave, color, alpha, offset);
             frame = 0;
             this.speed = speed;
         }
@@ -66,7 +66,7 @@ public class Animated3dNebulaGenerator {
             for (int x=0; x<this.width; x++) {
                 for (int y=0; y<this.height; y++) {
 //                float n = this.generator.getConfiguredNoise(x, y);
-                    float n = this.generator.getConfiguredNoise(x, y, frame*speed);
+                    float n = this.generator.getConfiguredNoise(x+offset.x, y+offset.y, frame*speed);
                     float div = 0.5f;
                     float r = (cln.r+n)*div;
                     float g = (cln.g+n)*div;

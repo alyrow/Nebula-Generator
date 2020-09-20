@@ -39,7 +39,8 @@ public class NebulaDemo extends Game {
 				12955341,       // Seed
 				8,              // Octave
 				color,          // Color
-				6f             // Alpha
+				6f,             // Alpha
+				new Vector2(0,0)   //Offset
 		);
 		nebulasGenerator.addGenerator(greenGenerator);
 		// Blue-Purple nebula generator
@@ -51,7 +52,8 @@ public class NebulaDemo extends Game {
 				78852342,       // Seed
 				4,              // Octave
 				color,          // Color
-				4.5f             // Alpha
+				4.5f,             // Alpha
+				new Vector2(0,0)   //Offset
 				,5, 0
 		);
 		nebulasGenerator.addGenerator(orangeGenerator);
@@ -64,7 +66,8 @@ public class NebulaDemo extends Game {
 				78912345,       // Seed
 				9,              // Octave
 				color,          // Color
-				3.5f           // Alpha
+				3.5f,           // Alpha,
+				new Vector2(0,0)   //Offset
 		);
 		nebulasGenerator.addGenerator(redGenerator);
 		// Starfield pixmap
