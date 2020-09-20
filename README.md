@@ -13,7 +13,7 @@ allprojects {
 Then, add this dependencie:
 ```gradle
 dependencies {
-	implementation 'com.github.alyrow:Nebula-Generator:v1.0.0'
+	implementation 'com.github.alyrow:Nebula-Generator:v1.1.0'
 }
 ```
 
@@ -21,9 +21,9 @@ dependencies {
 A generator is defined by:
 ```java
 NebulaGenerator generator = new NebulaGenerator(width, height, noise_type, seed, octave,
-                color, alpha, offset_max, offset);
+                color, alpha, offset);
 ```
-Where `width` and `height` are the size of the nebula, `noise_type`, `seed` and `octave` are settings wich define how the nebula looks. `color` define the color of the nebula and `alpha` the level of alpha of the nebula. `offset_max` define the max displacement possible of the nebula and `offset` the displacement of the nebula.
+Where `width` and `height` are the size of the nebula, `noise_type`, `seed` and `octave` are settings wich define how the nebula looks. `color` defines the color of the nebula and `alpha` the level of alpha of the nebula. `offset` defines the displacement of the nebula.
 
 After that you can generate the nebula to a pixmap or a texture with:
 ```java
@@ -79,11 +79,11 @@ nebulasGenerator.generateTextureNebulasBlendedWithAPixmapGammaCorrection(your_pi
 #### Multiple nebulas blended with a star background:
 ##### Without gamma correction and alpha = 1
 ```java
-NebulaGenerator generator1 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.FOAM_NOISE, 283, 12,
-                new Color(0.1f,0.1f,1f,1), 1f, new Vector2(0,200), new Vector2(0,180));
+NebulaGenerator generator1 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), DEFAULT, 12955341, 8,
+                new Color(0.1f,0.1f,1f,1), 1f, new Vector2(0,180));
 
-NebulaGenerator generator2 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.WHITE_NOISE, 1000, 12,
-                new Color(0.8f,0.4f,0.6f,1), 1f, new Vector2(0,0), new Vector2(0,0));
+NebulaGenerator generator2 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), HONEY_NOISE, 78912345, 9,
+                new Color(0.8f,0.4f,0.6f,1), 1f, new Vector2(0,0));
 
 NebulasGenerator nebulasGenerator = new NebulasGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 nebulasGenerator.addGenerator(generator1);
@@ -94,11 +94,11 @@ Pixmap nebula = nebulasGenerator.generatePixmapNebulasBlendedWithAPixmap(new Pix
 ![](https://github.com/alyrow/Nebula-Generator/raw/master/screenshots/Without%20gamma%20correction%20and%20alpha%20%3D%201.png)
 ##### Without gamma correction and alpha = 3
 ```java
-NebulaGenerator generator1 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.FOAM_NOISE, 283, 12,
-                new Color(0.1f,0.1f,1f,1), 3f, new Vector2(0,200), new Vector2(0,180));
+NebulaGenerator generator1 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), DEFAULT, 12955341, 8,
+                new Color(0.1f,0.1f,1f,1), 3f, new Vector2(0,180));
 
-NebulaGenerator generator2 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.WHITE_NOISE, 1000, 12,
-                new Color(0.8f,0.4f,0.6f,1), 3f, new Vector2(0,0), new Vector2(0,0));
+NebulaGenerator generator2 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), HONEY_NOISE, 78912345, 9,
+                new Color(0.8f,0.4f,0.6f,1), 3f, new Vector2(0,0));
 
 NebulasGenerator nebulasGenerator = new NebulasGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 nebulasGenerator.addGenerator(generator1);
@@ -109,11 +109,11 @@ Pixmap nebula = nebulasGenerator.generatePixmapNebulasBlendedWithAPixmap(new Pix
 ![](https://github.com/alyrow/Nebula-Generator/raw/master/screenshots/Without%20gamma%20correction%20and%20alpha%20%3D%203.png)
 ##### With gamma correction and alpha = 1
 ```java
-NebulaGenerator generator1 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.FOAM_NOISE, 283, 12,
-                new Color(0.1f,0.1f,1f,1), 1f, new Vector2(0,200), new Vector2(0,180));
+NebulaGenerator generator1 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), DEFAULT, 12955341, 8,
+                new Color(0.1f,0.1f,1f,1), 1f, new Vector2(0,180));
 
-NebulaGenerator generator2 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.WHITE_NOISE, 1000, 12,
-                new Color(0.8f,0.4f,0.6f,1), 1f, new Vector2(0,0), new Vector2(0,0));
+NebulaGenerator generator2 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), HONEY_NOISE, 78912345, 9,
+                new Color(0.8f,0.4f,0.6f,1), 1f, new Vector2(0,0));
 
 NebulasGenerator nebulasGenerator = new NebulasGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 nebulasGenerator.addGenerator(generator1);
@@ -124,11 +124,11 @@ Pixmap nebula = nebulasGenerator.generatePixmapNebulasBlendedWithAPixmapGammaCor
 ![](https://github.com/alyrow/Nebula-Generator/raw/master/screenshots/With%20gamma%20correction%20and%20alpha%20%3D%201.png)
 ##### With gamma correction and alpha = 3
 ```java
-NebulaGenerator generator1 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.FOAM_NOISE, 283, 12,
-                new Color(0.1f,0.1f,1f,1), 3f, new Vector2(0,200), new Vector2(0,180));
+NebulaGenerator generator1 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), DEFAULT, 12955341, 8,
+                new Color(0.1f,0.1f,1f,1), 3f, new Vector2(0,180));
 
-NebulaGenerator generator2 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), NebulaGenerator.NoiseType.WHITE_NOISE, 1000, 12,
-                new Color(0.8f,0.4f,0.6f,1), 3f, new Vector2(0,0), new Vector2(0,0));
+NebulaGenerator generator2 = new NebulaGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), HONEY_NOISE, 78912345, 9,
+                new Color(0.8f,0.4f,0.6f,1), 3f, new Vector2(0,0));
 
 NebulasGenerator nebulasGenerator = new NebulasGenerator(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 nebulasGenerator.addGenerator(generator1);
