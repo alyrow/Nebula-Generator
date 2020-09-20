@@ -1,5 +1,5 @@
 # Nebula-Generator
-A nebula generator writted with libgdx
+A nebula generator written with libgdx
 
 Ensure that you have jitpack dependencies source in your `build.gradle`:
 ```gradle
