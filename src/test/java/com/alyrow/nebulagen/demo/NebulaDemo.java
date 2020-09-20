@@ -10,6 +10,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.github.alyrow.nebulagenerator.lib.Animated3dNebulaGenerator;
+import com.github.alyrow.nebulagenerator.lib.AnimatedTranslationNebulaGenerator;
 import com.github.alyrow.nebulagenerator.lib.NebulaGenerator;
 import com.github.alyrow.nebulagenerator.lib.NebulasGenerator;
 
@@ -30,30 +32,27 @@ public class NebulaDemo extends Game {
 		nebulasGenerator = new NebulasGenerator(width, height);
 		// Blue-Green nebula generator
 		Color color = new Color().fromHsv(190f, 0.4f, 1f);
-		NebulaGenerator greenGenerator = new NebulaGenerator(
+		Animated3dNebulaGenerator.Time greenGenerator = new Animated3dNebulaGenerator.Time(
 				width,          // Width
 				height,         // Height
 				DEFAULT,        // Noise type
 				12955341,       // Seed
-				4,              // Octave
+				8,              // Octave
 				color,          // Color
-				6f,             // Alpha
-				new Vector2(),  // Offset max
-				new Vector2()   // Offset
+				6f             // Alpha
 		);
 		nebulasGenerator.addGenerator(greenGenerator);
 		// Blue-Purple nebula generator
 		color = new Color().fromHsv(260f, 0.5f, 0.8f);
-		NebulaGenerator orangeGenerator = new NebulaGenerator(
+		AnimatedTranslationNebulaGenerator orangeGenerator = new AnimatedTranslationNebulaGenerator(
 				width,          // Width
 				height,         // Height
 				FOAM_NOISE,     // Noise type
 				78852342,       // Seed
-				2,              // Octave
+				4,              // Octave
 				color,          // Color
-				4.5f,             // Alpha
-				new Vector2(),  // Offset max
-				new Vector2()   // Offset
+				4.5f             // Alpha
+				,5, 0
 		);
 		nebulasGenerator.addGenerator(orangeGenerator);
 		// Red-Purple nebula generator
@@ -63,11 +62,9 @@ public class NebulaDemo extends Game {
 				height,         // Height
 				HONEY_NOISE,    // Noise type
 				78912345,       // Seed
-				3,              // Octave
+				9,              // Octave
 				color,          // Color
-				3.5f,           // Alpha
-				new Vector2(),  // Offset max
-				new Vector2()   // Offset
+				3.5f           // Alpha
 		);
 		nebulasGenerator.addGenerator(redGenerator);
 		// Starfield pixmap

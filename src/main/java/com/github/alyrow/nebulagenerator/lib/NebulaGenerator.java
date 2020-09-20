@@ -16,14 +16,12 @@ public class NebulaGenerator {
     int seed = 10000;
     int width, height;
     Color color;
-    Vector2 offset;
-    Vector2 offset_max;
     int octave = 6;
     float alpha = 1;
     FastNoise generator;
-    long startTime;
+    //long startTime;
 
-    public NebulaGenerator(int width, int height, NoiseType type, long seed, int octave, Color color, float alpha, Vector2 offset_max, Vector2 offset) {
+    public NebulaGenerator(int width, int height, NoiseType type, long seed, int octave, Color color, float alpha) {
         this.width = width;
         this.height = height;
         this.seed = (int)(seed ^ seed >>> 32);
@@ -40,9 +38,7 @@ public class NebulaGenerator {
         }
         this.color = color;
         this.alpha = alpha;
-        this.offset_max = offset_max;
-        this.offset = offset;
-        startTime = TimeUtils.millis();
+        //startTime = TimeUtils.millis();
     }
 
 
@@ -50,11 +46,11 @@ public class NebulaGenerator {
     public Pixmap generatePixmapNebula(Pixmap pix) {
         pix.setBlending(Pixmap.Blending.SourceOver);
         Color cln = new Color(1, 1, 1, 0).sub(color), temp = new Color();
-        float time = TimeUtils.timeSinceMillis(startTime) * 0.01f;
+        //float time = TimeUtils.timeSinceMillis(startTime) * 0.01f;
         for (int x=0; x<this.width; x++) {
             for (int y=0; y<this.height; y++) {
 //                float n = this.generator.getConfiguredNoise(x, y);
-                float n = this.generator.getConfiguredNoise(x, y, time);
+                float n = this.generator.getConfiguredNoise(x, y/*, time*/);
                 float div = 0.5f;
                 float r = (cln.r+n)*div;
                 float g = (cln.g+n)*div;
