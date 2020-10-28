@@ -10,7 +10,7 @@ allprojects {
 	}
 }
 ```
-Then, add this dependencie:
+Then, add this dependency:
 ```gradle
 dependencies {
 	implementation 'com.github.alyrow:Nebula-Generator:v1.1.0'
